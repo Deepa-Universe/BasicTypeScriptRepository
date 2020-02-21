@@ -58,8 +58,10 @@ let firstElement: number = myTuples[0]; //1
 
 console.log("*******************************************************************************************");
 
-enum Country {"India" = 9, "Bangladesh" = 8, "Canada", "Poland"}; //We can change and set the index
-console.log(Country[Country.India]); //We can give previous no. in indexing but it will override the values, if maximum index has been set before.
+//enum Country {"India" = 9, "Bangladesh" = 8, "Canada", "Poland"}; //We can change and set the index
+//console.log(Country[Country.India]); //We can give previous no. in indexing but it will override the values, if maximum index has been set before.
+
+enum Country {"India", "Bangladesh", "Canada", "Poland"};
 
 function StoreUserData(){
     let users = [
@@ -138,3 +140,9 @@ function FetchUserRecordByCountry(data : Country) : Array<string> {
 
 
 FetchUserRecordByCountry(Country.India);
+
+let store = FetchUserRecordByCountry(Country.India);
+
+store.forEach((val, arg) => console.log(`${arg} - ${val}`)); //Call Back function used, arg gives position of the value
+
+

@@ -55,15 +55,16 @@ var anyArray = [true, false, "Space", 12, "Universe"];
 var myTuples = [1, "King"]; //Two different dataTypes
 var firstElement = myTuples[0]; //1
 console.log("*******************************************************************************************");
+//enum Country {"India" = 9, "Bangladesh" = 8, "Canada", "Poland"}; //We can change and set the index
+//console.log(Country[Country.India]); //We can give previous no. in indexing but it will override the values, if maximum index has been set before.
 var Country;
 (function (Country) {
-    Country[Country["India"] = 9] = "India";
-    Country[Country["Bangladesh"] = 8] = "Bangladesh";
-    Country[Country["Canada"] = 9] = "Canada";
-    Country[Country["Poland"] = 10] = "Poland";
+    Country[Country["India"] = 0] = "India";
+    Country[Country["Bangladesh"] = 1] = "Bangladesh";
+    Country[Country["Canada"] = 2] = "Canada";
+    Country[Country["Poland"] = 3] = "Poland";
 })(Country || (Country = {}));
-; //We can change and set the index
-console.log(Country[Country.India]); //We can give previous no. in indexing but it will override the values, if maximum index has been set before.
+;
 function StoreUserData() {
     var users = [
         {
@@ -129,3 +130,5 @@ function FetchUserRecordByCountry(data) {
     return userData;
 }
 FetchUserRecordByCountry(Country.India);
+var store = FetchUserRecordByCountry(Country.India);
+store.forEach(function (val, arg) { return console.log(arg + " - " + val); }); //Call Back function used, arg gives position of the value
